@@ -1,32 +1,32 @@
-<table  
-	<tr  
-		<th colspan="2" style="text-align:center"  
-			<img src="http://www.usb.ve/conocer/corporativa/archivos/logos/logo/logo.gif" width="64" height="43"  <br/  
-			Universidad Sim&oacute;n Bol&iacute;var<br/  
-			Departamento de Computaci&oacute;n y Tecnolog&iacute;a de la Informaci&oacute;n<br/  
+<table>
+	<tr>
+		<th colspan="2" style="text-align:center"?
+			<img src="http://www.usb.ve/conocer/corporativa/archivos/logos/logo/logo.gif" width="64" height="43"  <br/>
+			Universidad Sim&oacute;n Bol&iacute;var<br/>
+			Departamento de Computaci&oacute;n y Tecnolog&iacute;a de la Informaci&oacute;n<br/>
 			Laboratorio de Algoritmos y Estructuras de Datos II (CI 2692)
-	</tr  
-	<tr  
-		<th scope="row"  Asignaci&oacute;n:</th  
-		<td style="text-align:right"  Proyecto 3</td  
-	</tr  
-	<tr  
-		<th scope="row"  Modalidad:</th  
-		<td style="text-align:right"  Parejas</td  
-	</tr  
-	<tr  
-		<th scope="row"  Ponderación:</th  
-		<td style="text-align:right"  20%</td  
-	</tr  
-	<tr  
-		<th scope="row"  Asignado:</th  
-		<td style="text-align:right"  Jueves, 21 de junio de 2018 (sem 9)</td  
-	</tr  
-	<tr  
-		<th scope="row"  Entrega:</th  
-		<td style="text-align:right"  Jueves, 12 de julio de 2018 (sem 12)</td  
-	</tr  
-</table  
+	</tr>
+	<tr>
+		<th scope="row">Asignaci&oacute;n:</th>
+		<td style="text-align:right"  Proyecto 3</td>
+	</tr>
+	<tr>
+		<th scope="row">Modalidad:</th>
+		<td style="text-align:right"  Parejas</td>
+	</tr>
+	<tr>
+		<th scope="row">Ponderación:</th>
+		<td style="text-align:right"  20%</td>
+	</tr>
+	<tr>
+		<th scope="row">Asignado:</th>
+		<td style="text-align:right"  Jueves, 21 de junio de 2018 (sem 9)</td>
+	</tr>
+	<tr>
+		<th scope="row">Entrega:</th>
+		<td style="text-align:right"  Jueves, 12 de julio de 2018 (sem 12)</td>
+	</tr>
+</table>
 
 Objetivos:
 * Ejercitar su manejo de estructuras de datos.
@@ -63,15 +63,15 @@ var prioridad: String → int
 El siguiente invariante se debe cumplir sobre su estructura de datos en todo momento. Debe verificar que se cumplir&aacute; luego de cada operaci&oacute;n. En caso contrario, debe imprimir un error, y la operaci&oacute;n no se har&aacute; efectiva. *El programa debe seguir en funcionamiento luego de producirse el error.*
 
 
-  dom(*nombre*) = dom(*duración*) = dom(*prioridad*) <br/  
+  dom(*nombre*) = dom(*duración*) = dom(*prioridad*) <br/>
 
-    &and; |dom(*nombre*)| &le; MAX &and; (&forall; *y* : *y* &isin; rang(*prioridad*) : 0 &le; *y* &le; 5) <br/  
+    &and; |dom(*nombre*)| &le; MAX &and; (&forall; *y* : *y* &isin; rang(*prioridad*) : 0 &le; *y* &le; 5) <br/>
 
-    &and; (&forall; *x* : *x* &isin; dom(*nombre*): duraciónVálida(*x*, duración(*x*))) <br/  
+    &and; (&forall; *x* : *x* &isin; dom(*nombre*): duraciónVálida(*x*, duración(*x*))) <br/>
 
-    &and; (&forall; *x* : *x* &isin; dom(*nombre*): fechaHoraVálida(*x*)) <br/  
+    &and; (&forall; *x* : *x* &isin; dom(*nombre*): fechaHoraVálida(*x*)) <br/>
 
-    &and; (&forall; *y* : *y* &isin; rang(*nombre*) : *y* &ne; "") <br/  
+    &and; (&forall; *y* : *y* &isin; rang(*nombre*) : *y* &ne; "") <br/>
 
     &and; (&forall; *x* : *x* &isin; dom(*nombre*)
 
@@ -82,57 +82,59 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
 
 * `fun` *nuevaAgenda*(*m*: `int`) &rarr; *Agenda*
 
-   { `Pre: ` *m*    0 } 
+  { `Pre: ` *m* &gt; 0 } 
 
-   { `Post:` *nuevaAgenda*.MAX = *m* &and; *nuevaAgenda*.*nombre* = &empty; 
+  { `Post:` *nuevaAgenda*.MAX = *m* &and; *nuevaAgenda*.*nombre* = &empty; 
 
-     &and; nuevaAgenda.duraci&oacute;n = &empty; &and; nueaAqenda.prioridad = &empty; } 
+    &and; nuevaAgenda.duraci&oacute;n = &empty; &and; nueaAqenda.prioridad = &empty; } 
 
 * `proc` *agregarActividad*(`in-out` *a* : *Agenda*; `in` *fecha.Hora* : `String` ; in duracion : isit ; in prioridad : int; in nombre : String ) 
 
-   { `Pre: ` fechaHoraV&aacute;lida(*fechaHora*) &and; duraci&oacute;nV&aacute;lida(*fechaHora*, *duraci&oacute;n*)
+  { `Pre: ` fechaHoraV&aacute;lida(*fechaHora*) &and; duraci&oacute;nV&aacute;lida(*fechaHora*, *duraci&oacute;n*)
 
-     &and; 0 &le; *prioridad* &le; 5 &and; *nombre* &ne; "" &and; |dom(*nombre*)| < MAX      &and; &not;choca(*a,fechaHora, duraci&oacute;n*) } 
+    &and; 0 &le; *prioridad* &le; 5 &and; *nombre* &ne; "" &and; |dom(*nombre*)| &lt; MAX
+      &and; &not;choca(*a,fechaHora, duraci&oacute;n*) } 
 
-   { `Post:` *a.nombre* = *a*<sub  0</sub  .*nombre* &cup; {(*fechaHora, nombre*)} 
+  { `Post:` *a.nombre* = *a*<sub>0</sub>.*nombre* &cup; {(*fechaHora, nombre*)} 
 
-     &and; *a.duraci&oacute;n* = *a*<sub  0</sub  .*duraci&oacute;n* &cup; {(*fechaHora, duracion*)} 
+    &and; *a.duraci&oacute;n* = *a*<sub>0</sub>.*duraci&oacute;n* &cup; {(*fechaHora, duracion*)} 
 
-     &and; *a.prioridad* = *a.prioridad* &cup; { (*fechaHora, prioridad*)} } 
+    &and; *a.prioridad* = *a.prioridad* &cup; { (*fechaHora, prioridad*)} } 
 
 * `proc` *eliminarActividad* (`in-out` *a* : *Agenda*; `in` *fechaHora* : `String`)
 
-   { `Pre: ` fechaHora &isin; dom(*nombre*) } 
-{ Post: *a.nombre* = *a*<sub  0</sub  .*nombre* &minus; {(*fechaHora*, *a*<sub  0</sub  .*nombre*(*fechaHora*)} 
+  { `Pre: ` fechaHora &isin; dom(*nombre*) } 
+  { Post: *a.nombre* = *a*<sub  0</sub>.*nombre* &minus; {(*fechaHora*, *a*<sub>0</sub>.*nombre*(*fechaHora*)} 
 
-     &and; *a.duraci&oacute;n* = *a*<sub  0</sub  .*duracion* &minus; {(fechaHora, *a*<sub  0</sub  .*duraci&oacute;n(fechaHora))} 
+    &and; *a.duraci&oacute;n* = *a*<sub  0</sub  .*duracion* &minus; {(fechaHora, *a*<sub>0</sub>.*duraci&oacute;n(fechaHora))} 
 
-     &and; *a.prioridad* = *a*<sub  0</sub  .*prioridad* &minus; {(*fechaHora*, *a*<sub  0</sub  .*prioridad*(*fechaHora*))} } 
+    &and; *a.prioridad* = *a*<sub>0</sub>.*prioridad* &minus; {(*fechaHora*, *a*<sub>0</sub>.*prioridad*(*fechaHora*))} } 
 * proc listarActividades (`in` *a* : *Agenda*; `in` *fecha*: `String`) 
 
-   { `Pre: ` esFechaV&aacute;lida ( `toInt`(*fecha*)) } 
+  { `Pre: ` esFechaV&aacute;lida ( `toInt`(*fecha*)) } 
 
-   { `Post:` Está escrita en pantalla la secuencia ordenada sin repeticiones formada por los elementos del conjunto 
+  { `Post:` Está escrita en pantalla la secuencia ordenada sin repeticiones formada por los elementos del conjunto 
 
-     {x : x &isin; dom(*nombre*) &and; (*fecha* + "0600") &le; *x* &le; (fecha + "2200") : (*x*, *nombre*(*x*), *duraci&oacute;n*(*x*), *prioridad*(*x*))} }
+    {x : x &isin; dom(*nombre*) &and; (*fecha* + "0600") &le; *x* &le; (fecha + "2200") : (*x*, *nombre*(*x*), *duraci&oacute;n*(*x*), *prioridad*(*x*))} }
 
 * `fun` buscarActividad ( *a* : *Agenda*; *fechaHora*: `String`) &rarr; `String`
 
-   { `Pre: ` fechaHoraV&aacute;lida (JechaHora) } 
+  { `Pre: ` fechaHoraV&aacute;lida (JechaHora) } 
 
-   { `Post:` (*fechaHora* &isin; dom(*nombre*) &and; *buscarActividad* = *nombre*(*fechaHora*) &or; (fechaHora &notin;. dom(*nombre*) &and; *buscarActividad* = "") } 
+  { `Post:` (*fechaHora* &isin; dom(*nombre*) &and; *buscarActividad* = *nombre*(*fechaHora*) &or; (fechaHora &notin;. dom(*nombre*) &and; *buscarActividad* = "") } 
 * proc incluirActividades (`in-out` *al* : *Agenda*; `in` *a2* : *Agenda*) 
 
-   { `Pre: ` &not;(&exist; *x* &isin; dom(*a1.nombre*): choca(*a2*, *x*, *a1.duracion*(*x*)))
+  { `Pre: ` &not;(&exist; *x* &isin; dom(*a1.nombre*): choca(*a2*, *x*, *a1.duracion*(*x*)))
 
-     &and; |dom(*a1.nombre*)| + |dom(*a2.nombre*)| &le; *a1*.MAX } 
-{ `Post:` *a1.nombre* = *a1*<sub  0</sub  .*nombre* &cup; *a2.nombre* 
+    &and; |dom(*a1.nombre*)| + |dom(*a2.nombre*)| &le; *a1*.MAX } 
+  { `Post:` *a1.nombre* = *a1*<sub>0</sub>.*nombre* &cup; *a2.nombre* 
 
-     &and; *al.duraci&oacute;* = *a1.duraci&oacute;n &cup; *a2.duraci&oacute;n 
+    &and; *al.duraci&oacute;* = *a1.duraci&oacute;n &cup; *a2.duraci&oacute;n 
 
-     &and; *a1.prioridad* = *a1*<sub  0</sub  .*prioridad* &cup; *a2.prioridad* }
+    &and; *a1.prioridad* = *a1*<sub>0</sub>.*prioridad* &cup; *a2.prioridad* }
 
   &vellip;
+
 `Fin TAD`
 
 Esta especificación utiliza los predicados auxiliares:
@@ -148,7 +150,7 @@ A continuación se presentan sus definiciones:
   &and; (((( obtenerMinutos(*fh*) + *d*) mod 60)+
 
     ((( obtenerMinutos(*fh*) + d) div 60) + obtenerHora(*fh*)) &times; 100) &le; 2200)
-* fechaHora Valida(*fh*) = length(*fh*) = 12 &and; (&forall; *j* : 0 &le; *j* < length(*fh*) : "0" &le; *fh[j]* &le; "9") 
+* fechaHora Valida(*fh*) = length(*fh*) = 12 &and; (&forall; *j* : 0 &le; *j* &lt; length(*fh*) : "0" &le; *fh[j]* &le; "9") 
 
   &and; esHoraV&aacute;lida( `tolnt`( *fh*[8:12]))) 
 
@@ -157,11 +159,11 @@ A continuación se presentan sus definiciones:
 * esHoraValida(*h*) = (6 &le; *h* div 100 &le; 21 &and; 0 &le; *h* mod 100 &le; 59) &or; (*h* div 100 = 22 &and; *h* mod 100 = 0)
 * seSolapan(*fh1*, *d1*, *fh2*, *d2*) = fechaHoraV&aacute;lida(*fh1*) &and; fechaHoraV&aacute;lida(*fh2*) 
 
-  &and; *d1*    0 &and; *d2*    O 
+  &and; *d1* &gt; 0 &and; *d2* &gt; O 
 
-  &and; ((*fh1* < *fh2* &and; *fh2* < fin(*fh1*, *d1*)) &or; *fh1* = *fh2* 
+  &and; ((*fh1* &lt; *fh2* &and; *fh2* &lt; fin(*fh1*, *d1*)) &or; *fh1* = *fh2* 
 
-    &or; (*fh2* < *fh1* &and; *fh1* < fin(*fh2*, *d2*)))
+    &or; (*fh2* &lt; *fh1* &and; *fh1* &lt; fin(*fh2*, *d2*)))
 * choca(*a*,*fh*, *d*) = fechaHoraV&aacute;lida(*fh*) &and; *d*    0 
 &and; (&exist;x &isin; dom(*nombre*) : seSolapan(*x*, duraci&oacute;n(*x*), *fh*, *d*))
 
@@ -177,7 +179,7 @@ A continuación se presenta la definición de algunas de las funciones auxiliare
 
   fin(*fh*, *d*) = fh[0:8] 
 
-    +((obtenerHora(*fh*) + ((obtenerMinutos(*fh*) + *d*) div 60)) < l0 ? "0" : "")+
+    +((obtenerHora(*fh*) + ((obtenerMinutos(*fh*) + *d*) div 60)) &lt; l0 ? "0" : "")+
 
     (( obtenerMinutos(*fh*) + *d*) mod 60) 
 
