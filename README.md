@@ -68,19 +68,18 @@ El siguiente invariante se debe cumplir sobre su estructura de datos en todo mom
 >>  &and; (&forall; *x* : *x* &isin; dom(*nombre*): duraciónVálida(*x*, duración(*x*))) <br/>
 >>  &and; (&forall; *x* : *x* &isin; dom(*nombre*): fechaHoraVálida(*x*)) <br/>
 >>  &and; (&forall; *y* : *y* &isin; rang(*nombre*) : *y* &ne; "") <br/>
->>  &and; (&forall; *x* : *x* &isin; dom(*nombre*)
->>>   : &not;(&exist; *y* : y &isin; dom(*nombre*) &and; *x* &ne; *y* : seSolapan(*x*, duración(*x*), *y*, duración(*y*))))
+>>  &and; (&forall; *x* : *x* &isin; dom(*nombre*) : &not;(&exist; *y* : y &isin; dom(*nombre*) &and; *x* &ne; *y* : seSolapan(*x*, duración(*x*), *y*, duración(*y*))))
 
 ### Operaciones 
 A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacute;n. Debe verificar que se cumple la precondici&oacute;n antes de realizar la operaci&oacute;n. En caso contrario, debe imprimir un error y no realizar la operaci&oacute;n. Las postcondiciones indican qu&eacute; debe realizar la operaci&oacute;n.
 
 * `fun` *nuevaAgenda*(*m*: `int`) &rarr; *Agenda*
 
-* { `Pre: ` *m* &gt; 0 } 
+  * { `Pre: ` *m* &gt; 0 } 
 
-* { `Post:` *nuevaAgenda*.MAX = *m* &and; *nuevaAgenda*.*nombre* = &empty;
+  * { `Post:` *nuevaAgenda*.MAX = *m* &and; *nuevaAgenda*.*nombre* = &empty;
 
-    &and; nuevaAgenda.duraci&oacute;n = &empty; &and; nueaAqenda.prioridad = &empty; } 
+      &and; nuevaAgenda.duraci&oacute;n = &empty; &and; nueaAqenda.prioridad = &empty; } 
 
 * `proc` *agregarActividad*(`in-out` *a* : *Agenda*; `in` *fecha.Hora* : `String` ; `in` *duraci&oacute;n* : `int` ; `in` *prioridad* : `int`; `in` *nombre* : `String` )
 
@@ -89,7 +88,7 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
       &and; 0 &le; *prioridad* &le; 5 &and; *nombre* &ne; "" &and; |dom(*nombre*)| &lt; MAX
         &and; &not;choca(*a,fechaHora, duraci&oacute;n*) } 
 
-  { `Post:` *a.nombre* = *a*<sub>0</sub>.*nombre* &cup; {(*fechaHora, nombre*)}
+  * { `Post:` *a.nombre* = *a*<sub>0</sub>.*nombre* &cup; {(*fechaHora, nombre*)}
   
     &and; *a.duraci&oacute;n* = *a*<sub>0</sub>.*duraci&oacute;n* &cup; {(*fechaHora, duracion*)} 
     
@@ -97,14 +96,14 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
 
 * `proc` *eliminarActividad* (`in-out` *a* : *Agenda*; `in` *fechaHora* : `String`)
 
-  *  { `Pre: ` fechaHora &isin; dom(*nombre*) } 
+  * { `Pre: ` fechaHora &isin; dom(*nombre*) } 
   
-  *  { `Post:` *a.nombre* = *a*<sub>0</sub>.*nombre* &minus; {(*fechaHora*, *a*<sub>0</sub>.*nombre*(*fechaHora*)} 
+  * { `Post:` *a.nombre* = *a*<sub>0</sub>.*nombre* &minus; {(*fechaHora*, *a*<sub>0</sub>.*nombre*(*fechaHora*)} 
 
     &and; *a.duraci&oacute;n* = *a*<sub>0</sub>.*duracion* &minus; {(fechaHora, *a*<sub>0</sub>.*duraci&oacute;n(fechaHora))} 
 
     &and; *a.prioridad* = *a*<sub>0</sub>.*prioridad* &minus; {(*fechaHora*, *a*<sub>0</sub>.*prioridad*(*fechaHora*))} } 
-* proc listarActividades (`in` *a* : *Agenda*; `in` *fecha*: `String`) 
+* `proc` listarActividades (`in` *a* : *Agenda*; `in` *fecha*: `String`) 
 
   *  { `Pre: ` esFechaV&aacute;lida ( `toInt`(*fecha*)) } 
 
@@ -134,7 +133,8 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
 Esta especificación utiliza los predicados auxiliares:
 1. duraci&oacute;nValida, que dado un `String` que representa una fecha-hora y un entero que representa una duración, se satisface si la duración permite que la actividad termine en el horario válido;
 2. fechaHoraV&aacute;lida, dado un `String`, se satisface si corresponde al formato de una fecha-hora válida;
-3. esFechaV&aacute;lida, se satisface si el entero corresponde a una fecha v&aacute;lida; 4. esHoraV&aacute;lida, se satisface si el entero corresponde a una hora valida
+3. esFechaV&aacute;lida, se satisface si el entero corresponde a una fecha v&aacute;lida;
+4. esHoraV&aacute;lida, se satisface si el entero corresponde a una hora valida
 5. seSolapan, se satisface si las fechas-horas y duraciones son tales que se solapan, las fechas-horas son dados como St1ing y la duraciones como enteros
 6. choca, se satisface si, en la agenda dada como primer argumento, hay alguna actividad tal que se solape con la fecha-hora y duración dadas como segundo y tercer argumento.
 
@@ -163,7 +163,7 @@ A continuación se presenta la definición de algunas de las funciones auxiliare
 
 * obtenerMinutos: recibe como argumento una fecha-hora v&aacute;lida representada con un `String` y retorna el entero correpondiente a los minutos de esa fecha-hora .
 
-  * obtenerMinutos(*fh*) = (`tolnt`(*fh*[8:12] mod 100)
+  * obtenerMinutos(*fh*) = (`tolnt`(*fh*[8:12]) mod 100)
 
 * obtenerHora: reciben como argumento una fecha-hora v&aacute;lida representada con un `String` y retorna el entero correspondiente a las horas de esa fecha-hora. 
 
@@ -185,7 +185,7 @@ Además de las operaciones ya presentadas, se quiere que el TAD provea una varia
 
   * {`Pre: ` esFechaV&aacute;lida(`tolnt`(fecha)) &and; O &le; prioridad &le; 5 } 
 
-  * { `Post:` Está escrita en pantalla la secuencia ordenada sin repeticiones formada por los elementos del conjunto\
+  * { `Post:` Está escrita en pantalla la secuencia ordenada sin repeticiones formada por los elementos del conjunto
   
     {*x* : *x* &isin; dom(nombre) &and; (fecha + "0600" ) &le; *x* &le; (fecha + "2200")
         &and; *prioridad*(*x*) &le; *prioridad* 
