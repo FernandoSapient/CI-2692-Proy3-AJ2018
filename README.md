@@ -171,7 +171,7 @@ A continuación se presenta la definición de algunas de las funciones auxiliare
   
 * fin: recibe como argumentos una fecha-hora v&aacute;lida, representada con un `String`, y un entero positivo que representa la duración; y retorna un `String` correspondiente a la fecha-hora en que termina la actividad. 
 
- * fin(*fh*, *d*) = fh[0:8] 
+  * fin(*fh*, *d*) = fh[0:8] 
     +((obtenerHora(*fh*) + ((obtenerMinutos(*fh*) + *d*) div 60)) &lt; l0 ? "0" : "")+
 
       (( obtenerMinutos(*fh*) + *d*) mod 60) 
@@ -183,7 +183,7 @@ Además de las operaciones ya presentadas, se quiere que el TAD provea una varia
 
 * `proc` *listarActividadeslmportantes* (`in` *a* : *Agenda*; `in` *fecha*: *String*; `in` *prioridad*: `int`)
 
-  * {`Pre: ` esFechaV&aacute;lida(`tolnt`(fecha)) &and; O &le; prioridad &le; 5 } 
+  * {`Pre: ` esFechaV&aacute;lida(`tolnt`(fecha)) &and; 0 &le; prioridad &le; 5 } 
 
   * { `Post:` Está escrita en pantalla la secuencia ordenada sin repeticiones formada por los elementos del conjunto
   
