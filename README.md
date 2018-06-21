@@ -64,17 +64,11 @@ El siguiente invariante se debe cumplir sobre su estructura de datos en todo mom
 
 
 > dom(*nombre*) = dom(*duración*) = dom(*prioridad*) <br/>
-
 >>  &and; |dom(*nombre*)| &le; MAX &and; (&forall; *y* : *y* &isin; rang(*prioridad*) : 0 &le; *y* &le; 5) <br/>
-
 >>  &and; (&forall; *x* : *x* &isin; dom(*nombre*): duraciónVálida(*x*, duración(*x*))) <br/>
-
 >>  &and; (&forall; *x* : *x* &isin; dom(*nombre*): fechaHoraVálida(*x*)) <br/>
-
 >>  &and; (&forall; *y* : *y* &isin; rang(*nombre*) : *y* &ne; "") <br/>
-
 >>  &and; (&forall; *x* : *x* &isin; dom(*nombre*)
-
 >>>   : &not;(&exist; *y* : y &isin; dom(*nombre*) &and; *x* &ne; *y* : seSolapan(*x*, duración(*x*), *y*, duración(*y*))))
 
 ### Operaciones 
@@ -87,7 +81,7 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
   { `Post:` *nuevaAgenda*.MAX = *m* &and; *nuevaAgenda*.*nombre* = &empty;
     &and; nuevaAgenda.duraci&oacute;n = &empty; &and; nueaAqenda.prioridad = &empty; } 
 
-* `proc` *agregarActividad*(`in-out` *a* : *Agenda*; `in` *fecha.Hora* : `String` ; in duracion : isit ; in prioridad : int; in nombre : String )
+* `proc` *agregarActividad*(`in-out` *a* : *Agenda*; `in` *fecha.Hora* : `String` ; `in` *duraci&oacute;n* : `int` ; `in` *prioridad* : `int`; `in` *nombre* : `String` )
 
   { `Pre: ` fechaHoraV&aacute;lida(*fechaHora*) &and; duraci&oacute;nV&aacute;lida(*fechaHora*, *duraci&oacute;n*)
     &and; 0 &le; *prioridad* &le; 5 &and; *nombre* &ne; "" &and; |dom(*nombre*)| &lt; MAX
