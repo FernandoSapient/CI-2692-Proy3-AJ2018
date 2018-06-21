@@ -1,30 +1,30 @@
 <table>
 	<tr>
 		<th colspan="2" style="text-align:center"?
-			<img src="http://www.usb.ve/conocer/corporativa/archivos/logos/logo/logo.gif" width="64" height="43"  <br/>
+			<img src="http://www.usb.ve/conocer/corporativa/archivos/logos/logo/logo.gif" width="64" height="43"><br/>
 			Universidad Sim&oacute;n Bol&iacute;var<br/>
 			Departamento de Computaci&oacute;n y Tecnolog&iacute;a de la Informaci&oacute;n<br/>
 			Laboratorio de Algoritmos y Estructuras de Datos II (CI 2692)
 	</tr>
 	<tr>
 		<th scope="row">Asignaci&oacute;n:</th>
-		<td style="text-align:right"  Proyecto 3</td>
+		<td style="text-align:right">Proyecto 3</td>
 	</tr>
 	<tr>
 		<th scope="row">Modalidad:</th>
-		<td style="text-align:right"  Parejas</td>
+		<td style="text-align:right">Parejas</td>
 	</tr>
 	<tr>
 		<th scope="row">Ponderación:</th>
-		<td style="text-align:right"  20%</td>
+		<td style="text-align:right">20%</td>
 	</tr>
 	<tr>
 		<th scope="row">Asignado:</th>
-		<td style="text-align:right"  Jueves, 21 de junio de 2018 (sem 9)</td>
+		<td style="text-align:right">Jueves, 21 de junio de 2018 (sem 9)</td>
 	</tr>
 	<tr>
 		<th scope="row">Entrega:</th>
-		<td style="text-align:right"  Jueves, 12 de julio de 2018 (sem 12)</td>
+		<td style="text-align:right">Jueves, 12 de julio de 2018 (sem 12)</td>
 	</tr>
 </table>
 
@@ -104,9 +104,9 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
 * `proc` *eliminarActividad* (`in-out` *a* : *Agenda*; `in` *fechaHora* : `String`)
 
   { `Pre: ` fechaHora &isin; dom(*nombre*) } 
-  { Post: *a.nombre* = *a*<sub  0</sub>.*nombre* &minus; {(*fechaHora*, *a*<sub>0</sub>.*nombre*(*fechaHora*)} 
+  { Post: *a.nombre* = *a*<sub>0</sub>.*nombre* &minus; {(*fechaHora*, *a*<sub>0</sub>.*nombre*(*fechaHora*)} 
 
-    &and; *a.duraci&oacute;n* = *a*<sub  0</sub  .*duracion* &minus; {(fechaHora, *a*<sub>0</sub>.*duraci&oacute;n(fechaHora))} 
+    &and; *a.duraci&oacute;n* = *a*<sub>0</sub>.*duracion* &minus; {(fechaHora, *a*<sub>0</sub>.*duraci&oacute;n(fechaHora))} 
 
     &and; *a.prioridad* = *a*<sub>0</sub>.*prioridad* &minus; {(*fechaHora*, *a*<sub>0</sub>.*prioridad*(*fechaHora*))} } 
 * proc listarActividades (`in` *a* : *Agenda*; `in` *fecha*: `String`) 
@@ -145,7 +145,7 @@ Esta especificación utiliza los predicados auxiliares:
 6. choca, se satisface si, en la agenda dada como primer argumento, hay alguna actividad tal que se solape con la fecha-hora y duración dadas como segundo y tercer argumento.
 
 A continuación se presentan sus definiciones: 
-* duracionV&aacute;lida (*fh*, *d*) = fechaHoraValida(*fh*) &and; d    0
+* duracionV&aacute;lida (*fh*, *d*) = fechaHoraValida(*fh*) &and; d &gt; 0
 
   &and; (((( obtenerMinutos(*fh*) + *d*) mod 60)+
 
@@ -164,7 +164,7 @@ A continuación se presentan sus definiciones:
   &and; ((*fh1* &lt; *fh2* &and; *fh2* &lt; fin(*fh1*, *d1*)) &or; *fh1* = *fh2* 
 
     &or; (*fh2* &lt; *fh1* &and; *fh1* &lt; fin(*fh2*, *d2*)))
-* choca(*a*,*fh*, *d*) = fechaHoraV&aacute;lida(*fh*) &and; *d*    0 
+* choca(*a*,*fh*, *d*) = fechaHoraV&aacute;lida(*fh*) &and; *d* &gt; 0 
 &and; (&exist;x &isin; dom(*nombre*) : seSolapan(*x*, duraci&oacute;n(*x*), *fh*, *d*))
 
  
@@ -229,11 +229,8 @@ El informe debe contener:
 * C&oacute;mo correr su programa
 * Detalles de implementación
 * Un analisis de orden para cada una de las 6 operaciones
-
   * Mejor caso
-
   * Caso promedio
-
   * Peor caso
 * Conclusiones
 
@@ -243,12 +240,8 @@ El informe debe reflejar lo implementado en su c&oacute;digo.
 El proyecto tiene una ponderaci&oacute;n de 20 puntos. Se asignar&aacute;:
 * 11 puntos por su Informe (&frac12; punto por cada elemento especificado anteriormente)
 * 5 puntos por ejecuci&oacute;n
-
   * &frac12; punto por cada operaci&oacute;n del men&uacute;
-
   * &frac12; punto por el men&uacute; en s&iacute;
 * 4 puntos por c&oacute;digo
-
   * &frac12; punto por cada operaci&oacute;n del men&uacute; exceptuando la operaci&oacute;n de salir
-
   * &frac12; punto por ajustarse a la filosof&iacute;a de Python
