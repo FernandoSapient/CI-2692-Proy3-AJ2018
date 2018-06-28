@@ -229,8 +229,7 @@ El informe debe reflejar lo implementado en su c&oacute;digo.
 El proyecto tiene una ponderaci&oacute;n de 20 puntos. Se asignar&aacute;:
 * 11 puntos por su Informe (&frac12; punto por cada elemento especificado anteriormente)
 * 5 puntos por ejecuci&oacute;n
-  * &frac12; punto por cada operaci&oacute;n del men&uacute;
+  * &frac12; punto por cada operaci&oacute;n del men&uacute; incluyendo la operaci&oacute;n de salir
   * &frac12; punto por el men&uacute; en s&iacute;
 * 4 puntos por c&oacute;digo
   * &frac12; punto por cada operaci&oacute;n del men&uacute; exceptuando la operaci&oacute;n de salir
-  * &frac12; punto por ajustarse a la filosof&iacute;a de Python
