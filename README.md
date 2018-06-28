@@ -117,7 +117,7 @@ A continuaci&oacute;n se presentan pre y post condiciones para cada operaci&oacu
 
   * { `Post:` (*fechaHora* &isin; dom(*nombre*) &and; *buscarActividad* = *nombre*(*fechaHora*) &or; (fechaHora &notin;. dom(*nombre*) &and; *buscarActividad* = "") }
 
-* proc incluirActividades (`in-out` *al* : *Agenda*; `in` *a2* : *Agenda*)
+* `proc` incluirActividades (`in-out` *al* : *Agenda*; `in` *a2* : *Agenda*)
 
   * { `Pre: ` &not;(&exist; *x* &isin; dom(*a1.nombre*): choca(*a2*, *x*, *a1.duraci&oacute;n*(*x*)))
       &and; |dom(*a1.nombre*)| + |dom(*a2.nombre*)| &le; *a1*.MAX }
@@ -179,7 +179,7 @@ A continuación se presenta la definición de algunas de las funciones auxiliare
 
 El operador `a ? b : c` corresponde al operador condicional (si `a`, entonces `b`; si no `c`).
 
-Además de las operaciones ya presentadas, se quiere que el TAD provea una variante del procedimiento *listarActividades*: una variación lista solamente las actividades importantes de una fecha dada, entendiendo por actividad importante aquella cuya prioridad es igualo menor a la prioridad dada como argumento; Esta operaci&oacute;n debe preservar el orden relativo a la fecha-hora: deben ser organizadas seg&uacute;n su prioridad y, en caso de existir dos o más actividades con igual prioridad, estas deben ser listadas según su fecha-hora. 
+Además de las operaciones ya presentadas, se quiere que el TAD provea una variante del procedimiento *listarActividades*: una variación lista solamente las actividades importantes de una fecha dada, entendiendo por actividad importante aquella cuya prioridad es igual o menor a la prioridad dada como argumento; Esta operaci&oacute;n debe preservar el orden relativo a la fecha-hora: deben ser organizadas seg&uacute;n su prioridad y, en caso de existir dos o más actividades con igual prioridad, estas deben ser listadas según su fecha-hora. 
 
 * `proc` *listarActividadeslmportantes* (`in` *a* : *Agenda*; `in` *fecha*: *String*; `in` *prioridad*: `int`)
 
